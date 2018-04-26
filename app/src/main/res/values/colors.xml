@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="app_main_background">#f3f3f3</color>
+    <color name="line_gray">#f2f2f2</color>
+
+    <color name="item_press_true">#eeeeee</color>
+    <color name="item_press_false">#ffffff</color>
+
+    <color name="translucent">#00000000</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
+    <color name="app_window_background">#f2f2f2</color>
+</resources>

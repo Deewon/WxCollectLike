@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <CheckBox
+        android:id="@+id/wxcheck"
+        style="@style/CustomCheckboxTheme"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:padding="2dp"/>
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+    <TextView
+        android:id="@+id/wxid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>
