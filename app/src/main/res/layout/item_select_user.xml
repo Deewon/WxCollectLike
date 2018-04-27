@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="44dp"
+    android:id="@+id/useritem"
     android:gravity="center_vertical"
+    android:background="@color/white"
     android:orientation="horizontal">
 
     <CheckBox
         android:id="@+id/wxcheck"
         style="@style/CustomCheckboxTheme"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_centerVertical="true"
         android:padding="2dp"/>
 
     <ImageView
         android:id="@+id/userImage"
         android:layout_width="30dp"
-        android:layout_height="30dp"/>
+        android:layout_height="30dp"
+        android:layout_toRightOf="@id/wxcheck"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"/>
 
     <TextView
         android:id="@+id/wxid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_toRightOf="@id/userImage"
+        android:layout_marginLeft="@dimen/dp_10"
         android:gravity="center_vertical"/>
 
-</LinearLayout>
+</RelativeLayout>
