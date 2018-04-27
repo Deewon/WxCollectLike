@@ -1,4 +1,4 @@
-package com.xd.wxlike.utils;
+package com.xd.wxlike.common.utils;
 
 import android.os.Build;
 import android.view.View;

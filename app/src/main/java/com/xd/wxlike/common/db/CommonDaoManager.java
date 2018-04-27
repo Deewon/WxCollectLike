@@ -1,4 +1,4 @@
-package com.xd.wxlike.db;
+package com.xd.wxlike.common.db;
 
 
 /**

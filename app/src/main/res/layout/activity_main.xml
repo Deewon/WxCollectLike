@@ -25,7 +25,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="200dp"
         android:src="@mipmap/p1"/>
-    <android.support.v7.app.AlertController.RecycleListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/myinfoRc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

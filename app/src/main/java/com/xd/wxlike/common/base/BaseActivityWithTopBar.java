@@ -1,4 +1,4 @@
-package com.xd.wxlike.base;
+package com.xd.wxlike.common.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.StringUtils;
 import com.xd.wxlike.R;
-import com.xd.wxlike.utils.MathUtil;
+import com.xd.wxlike.common.utils.MathUtil;
 
 
 /**

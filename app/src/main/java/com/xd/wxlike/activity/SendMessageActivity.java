@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xd.wxlike.R;
-import com.xd.wxlike.base.BaseActivityWithTopBar;
+import com.xd.wxlike.common.base.BaseActivityWithTopBar;
 
 /**
  * Created by zhangxiaodi1 on 2018/4/23.

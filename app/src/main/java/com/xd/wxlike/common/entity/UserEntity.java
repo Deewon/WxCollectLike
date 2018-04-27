@@ -1,4 +1,4 @@
-package com.xd.wxlike.entity;
+package com.xd.wxlike.common.entity;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
@@ -32,21 +32,12 @@ public class UserEntity {
      * 地址
      */
     private String userAddress;
+    /**
+     * 主页背景
+     */
+    private String backImage;
 
 
-    @Generated(hash = 246861243)
-    public UserEntity(String userWxid, String userName, String nickName,
-            int userImage, String userAddress) {
-        this.userWxid = userWxid;
-        this.userName = userName;
-        this.nickName = nickName;
-        this.userImage = userImage;
-        this.userAddress = userAddress;
-    }
-
-    @Generated(hash = 1433178141)
-    public UserEntity() {
-    }
 
 
     public String getUserWxid() {
@@ -87,5 +78,13 @@ public class UserEntity {
 
     public void setUserImage(int userImage) {
         this.userImage = userImage;
+    }
+
+    public String getBackImage() {
+        return backImage;
+    }
+
+    public void setBackImage(String backImage) {
+        this.backImage = backImage;
     }
 }

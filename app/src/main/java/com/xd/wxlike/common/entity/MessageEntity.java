@@ -1,4 +1,4 @@
-package com.xd.wxlike.entity;
+package com.xd.wxlike.common.entity;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;

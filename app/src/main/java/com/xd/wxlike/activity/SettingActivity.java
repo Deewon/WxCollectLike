@@ -9,9 +9,9 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.xd.wxlike.R;
-import com.xd.wxlike.base.BaseActivityWithTopBar;
-import com.xd.wxlike.entity.MessageEntity;
-import com.xd.wxlike.entity.UserEntity;
+import com.xd.wxlike.common.base.BaseActivityWithTopBar;
+import com.xd.wxlike.common.entity.MessageEntity;
+import com.xd.wxlike.common.entity.UserEntity;
 
 import java.util.List;
 

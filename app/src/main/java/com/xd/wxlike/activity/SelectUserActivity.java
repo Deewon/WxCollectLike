@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.xd.wxlike.base.BaseActivityWithTopBar;
+import com.xd.wxlike.common.base.BaseActivityWithTopBar;
 import com.xd.wxlike.R;
 /**
  * Created by zhangxiaodi1 on 2018/4/8.

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.xd.wxlike.R;
-import com.xd.wxlike.base.BaseActivityWithTopBar;
+import com.xd.wxlike.common.base.BaseActivityWithTopBar;
 
 /**
  * Created by zhangxiaodi1 on 2018/4/22.

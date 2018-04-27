@@ -1,15 +1,22 @@
 package com.xd.wxlike.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.xd.wxlike.R;
-import com.xd.wxlike.base.BaseActivityWithTopBar;
+import com.xd.wxlike.common.base.BaseActivityWithTopBar;
 
 public class MainActivity extends BaseActivityWithTopBar {
+
+
+    private RecyclerView messageRc;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +47,7 @@ public class MainActivity extends BaseActivityWithTopBar {
 
 
         PopupWindow popupWindow = new PopupWindow(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.pop_select_messagestyle,null);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_select_type,null);
 
         popupWindow.setContentView(view);
 
