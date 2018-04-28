@@ -1,4 +1,4 @@
-package com.xd.wxlike.base;
+package com.xd.wxlike.common.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.StringUtils;
 import com.xd.wxlike.R;
-import com.xd.wxlike.utils.MathUtil;
+import com.xd.wxlike.common.utils.MathUtil;
 
 
 /**
@@ -34,7 +34,7 @@ public class BaseActivityWithTopBar extends BaseActivity {
     @Override
     public void setContentView(int layoutResID) {
         RelativeLayout root = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.activity_common, null);
-        MathUtil.setStatusBarHeigh(root.findViewById(R.id.titleBar),root.findViewById(R.id.statusBar));
+        MathUtil.setStatusBarHeigh(root.findViewById(R.id.titleBar),50,root.findViewById(R.id.statusBar));
         mTitleTv = root.findViewById(R.id.title);
         rightImage = root.findViewById(R.id.right_image1);
         rightIv = root.findViewById(R.id.right_image2);
@@ -48,7 +48,7 @@ public class BaseActivityWithTopBar extends BaseActivity {
     @Override
     public void setContentView(View view) {
         RelativeLayout root = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.activity_common, null);
-        MathUtil.setStatusBarHeigh(root.findViewById(R.id.titleBar),root.findViewById(R.id.statusBar));
+        MathUtil.setStatusBarHeigh(root.findViewById(R.id.titleBar),50,root.findViewById(R.id.statusBar));
         mTitleTv = root.findViewById(R.id.title);
         rightImage = root.findViewById(R.id.right_image1);
         rightIv = root.findViewById(R.id.right_image2);

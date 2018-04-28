@@ -1,11 +1,9 @@
-package com.xd.wxlike.db;
+package com.xd.wxlike.common.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.github.yuweiguocn.library.greendao.MigrationHelper;
-import com.xd.wxlike.MyApplication;
-import com.xd.wxlike.entity.UserEntity;
 import com.xd.wxlike.greendao.DaoMaster;
 import com.xd.wxlike.greendao.UserEntityDao;
 

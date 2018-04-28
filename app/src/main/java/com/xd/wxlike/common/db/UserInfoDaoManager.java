@@ -1,6 +1,6 @@
-package com.xd.wxlike.db;
+package com.xd.wxlike.common.db;
 
-import com.xd.wxlike.entity.UserEntity;
+import com.xd.wxlike.common.entity.UserEntity;
 import com.xd.wxlike.greendao.UserEntityDao;
 
 import org.greenrobot.greendao.query.QueryBuilder;

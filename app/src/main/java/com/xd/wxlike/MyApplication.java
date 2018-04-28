@@ -3,7 +3,7 @@ package com.xd.wxlike;
 import android.app.Application;
 
 import com.blankj.utilcode.util.Utils;
-import com.xd.wxlike.entity.UserEntity;
+import com.xd.wxlike.common.entity.UserEntity;
 
 /**
  * Created by zhangxiaodi1 on 2018/4/6.

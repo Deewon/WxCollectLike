@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_dialog_background"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textType"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/list_item_selector"
+        android:gravity="center"
+        android:text="文本"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_gray" />
+
+    <TextView
+        android:id="@+id/urlType"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/list_item_selector"
+        android:gravity="center"
+        android:text="链接"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_gray" />
+
+    <TextView
+        android:id="@+id/picType"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/list_item_selector"
+        android:gravity="center"
+        android:text="图片"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_gray" />
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/list_item_selector"
+        android:gravity="center"
+        android:text="取消"
+        android:textSize="14sp" />
+
+</LinearLayout>

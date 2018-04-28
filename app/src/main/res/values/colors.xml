@@ -5,7 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="app_main_background">#f3f3f3</color>
-    <color name="line_gray">#f2f2f2</color>
+    <color name="line_gray">#b1b1b1</color>
 
     <color name="item_press_true">#eeeeee</color>
     <color name="item_press_false">#ffffff</color>
@@ -15,5 +15,32 @@
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
 
-    <color name="app_window_background">#f2f2f2</color>
+    <color name="app_window_background">#eeeeee</color>
+
+    <color name="title_black">#373a3f</color>
+
+    <color name="text_main">#393939</color>
+    <color name="text_gray">#b1b1b1</color>
+
+
+    <color name="red">#ff0000</color>
+    <color name="text_red">#DD414E</color>
+    <color name="btn_bg_red">#E2231A</color>
+    <color name="evaluate_color">#7ed321</color>
+    <color name="edit_backgroud_gray">#88BFBFBF</color>
+    <color name="edit_hint_color">#b9b9b9</color>
+    <color name="edit_login_text">#999999</color>
+
+    <color name="search_type_select">#595959</color>
+    <color name="search_type_normal">#999999</color>
+
+    <color name="gray_666">#666666</color>
+    <color name="gray_999">#999999</color>
+
+    <color name="edit_bg">#f1f1f1</color>
+
+    <color name="gray_bg_alpha">#88999999</color>
+
+    <color name="corner_stroke_line">#b7b7b7</color>
+
 </resources>
