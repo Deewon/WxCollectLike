@@ -29,6 +29,8 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         public final static Property NickName = new Property(2, String.class, "nickName", false, "NICK_NAME");
         public final static Property UserImage = new Property(3, int.class, "userImage", false, "USER_IMAGE");
         public final static Property UserAddress = new Property(4, String.class, "userAddress", false, "USER_ADDRESS");
+        public final static Property BackImage = new Property(5, String.class, "backImage", false, "BACK_IMAGE");
+        public final static Property Sex = new Property(6, int.class, "sex", false, "SEX");
     }
 
 
@@ -48,7 +50,9 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
                 "\"USER_NAME\" TEXT," + // 1: userName
                 "\"NICK_NAME\" TEXT," + // 2: nickName
                 "\"USER_IMAGE\" INTEGER NOT NULL ," + // 3: userImage
-                "\"USER_ADDRESS\" TEXT);"); // 4: userAddress
+                "\"USER_ADDRESS\" TEXT," + // 4: userAddress
+                "\"BACK_IMAGE\" TEXT," + // 5: backImage
+                "\"SEX\" INTEGER NOT NULL );"); // 6: sex
     }
 
     /** Drops the underlying database table. */
@@ -81,6 +85,12 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         if (userAddress != null) {
             stmt.bindString(5, userAddress);
         }
+ 
+        String backImage = entity.getBackImage();
+        if (backImage != null) {
+            stmt.bindString(6, backImage);
+        }
+        stmt.bindLong(7, entity.getSex());
     }
 
     @Override
@@ -107,6 +117,12 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         if (userAddress != null) {
             stmt.bindString(5, userAddress);
         }
+ 
+        String backImage = entity.getBackImage();
+        if (backImage != null) {
+            stmt.bindString(6, backImage);
+        }
+        stmt.bindLong(7, entity.getSex());
     }
 
     @Override
@@ -121,7 +137,9 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // userName
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // nickName
             cursor.getInt(offset + 3), // userImage
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // userAddress
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // userAddress
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // backImage
+            cursor.getInt(offset + 6) // sex
         );
         return entity;
     }
@@ -133,6 +151,8 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         entity.setNickName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setUserImage(cursor.getInt(offset + 3));
         entity.setUserAddress(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setBackImage(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setSex(cursor.getInt(offset + 6));
      }
     
     @Override

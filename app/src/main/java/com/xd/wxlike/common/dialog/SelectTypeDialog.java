@@ -12,9 +12,9 @@ import com.xd.wxlike.R;
 public class SelectTypeDialog extends AlertDialog {
 
     private Context context;
-    private View.OnClickListener listener;
+    private OnTypeClickListener listener;
 
-    protected SelectTypeDialog(@NonNull Context context, View.OnClickListener listener) {
+    protected SelectTypeDialog(@NonNull Context context, OnTypeClickListener listener) {
         super(context);
         this.context = context;
         this.listener = listener;
@@ -32,8 +32,42 @@ public class SelectTypeDialog extends AlertDialog {
 
     private void initView() {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_select_type,null);
-
-
-
+        view.findViewById(R.id.textType).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener!=null){
+                    listener.onClick(SelectTypeDialog.this,0);
+                }
+            }
+        });
+        view.findViewById(R.id.textType).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener!=null){
+                    listener.onClick(SelectTypeDialog.this,1);
+                }
+            }
+        });
+        view.findViewById(R.id.textType).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener!=null){
+                    listener.onClick(SelectTypeDialog.this,2);
+                }
+            }
+        });
+        view.findViewById(R.id.textType).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener!=null){
+                    dismiss();
+                }
+            }
+        });
     }
+
+    interface OnTypeClickListener{
+        void onClick(SelectTypeDialog dialog,int which);
+    }
+
 }

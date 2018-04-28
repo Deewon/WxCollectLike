@@ -1,16 +1,20 @@
 package com.xd.wxlike.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.xd.wxlike.R;
+import com.xd.wxlike.common.base.BaseActivity;
 import com.xd.wxlike.common.base.BaseActivityWithTopBar;
+import com.xd.wxlike.common.utils.MathUtil;
 
-public class MainActivity extends BaseActivityWithTopBar {
+public class MainActivity extends BaseActivity {
 
 
     private RecyclerView messageRc;
@@ -22,17 +26,20 @@ public class MainActivity extends BaseActivityWithTopBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        setTitle("我的相册");
-        setRightImage1(0, true, new View.OnClickListener() {
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //进入设置界面，设置需要发表的内容
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        ((TextView)findViewById(R.id.title)).setText("我的相册");
+        MathUtil.setStatusBarHeigh(findViewById(R.id.titleBar),50,findViewById(R.id.statusBar));
+        setTitle("我的相册");
+        findViewById(R.id.right_image1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //弹窗选择消息类型
 
-                initMessageStyle();
-
-                ActivityUtils.startActivity(SettingActivity.class);
 
             }
         });

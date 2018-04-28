@@ -4,11 +4,14 @@ import android.os.Build;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+
 import com.blankj.utilcode.util.ConvertUtils;
 import com.xd.wxlike.MyApplication;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by zhangxiaodi1 on 2017/12/23.
@@ -84,26 +87,52 @@ public class MathUtil {
     }
 
 
+    public static Date getStartTime() {
+        Calendar todayStart = Calendar.getInstance();
+        todayStart.set(Calendar.HOUR_OF_DAY, 0);
+        todayStart.set(Calendar.MINUTE, 0);
+        todayStart.set(Calendar.SECOND, 0);
+        todayStart.set(Calendar.MILLISECOND, 0);
+        return todayStart.getTime();
+    }
+
+    public static Date getEndTime() {
+        Calendar todayEnd = Calendar.getInstance();
+        todayEnd.set(Calendar.HOUR_OF_DAY, 23);
+        todayEnd.set(Calendar.MINUTE, 59);
+        todayEnd.set(Calendar.SECOND, 59);
+        todayEnd.set(Calendar.MILLISECOND, 999);
+        return todayEnd.getTime();
+    }
+
+
+
     /**
      * 设置状态栏填充控件高度
      * @param toolbar
      * @param statusBarView
      */
-    public static void setStatusBarHeigh(View toolbar, View statusBarView){
-        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.KITKAT) {
+    public static void setStatusBarHeigh(View toolbar,int toolbarHeighDp,View statusBarView){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) {
             RelativeLayout.LayoutParams params = new RelativeLayout
                     .LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, MathUtil.getStatusBarHeight());
-            RelativeLayout.LayoutParams toolBarParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
-            toolBarParams.height =  MathUtil.getStatusBarHeight()+ ConvertUtils.dp2px(44);
             statusBarView.setLayoutParams(params);
-            toolbar.setLayoutParams(toolBarParams);
+            statusBarView.setVisibility(View.VISIBLE);
+            if(toolbar!=null) {
+                RelativeLayout.LayoutParams toolBarParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
+                toolBarParams.height = MathUtil.getStatusBarHeight() + ConvertUtils.dp2px(toolbarHeighDp);
+                toolbar.setLayoutParams(toolBarParams);
+            }
         }else{
             RelativeLayout.LayoutParams params = new RelativeLayout
                     .LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, 0);
-            RelativeLayout.LayoutParams toolBarParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
-            toolBarParams.height =  ConvertUtils.dp2px(44);
             statusBarView.setLayoutParams(params);
-            toolbar.setLayoutParams(toolBarParams);
+            statusBarView.setVisibility(View.GONE);
+            if(toolbar!=null) {
+                RelativeLayout.LayoutParams toolBarParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
+                toolBarParams.height = ConvertUtils.dp2px(toolbarHeighDp);
+                toolbar.setLayoutParams(toolBarParams);
+            }
         }
     }
 

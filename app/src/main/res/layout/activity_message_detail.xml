@@ -16,11 +16,14 @@
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical"
+        android:background="@color/app_main_background"
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/sendMessage"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_height="35dp"
             android:layout_weight="1"/>
 
         <ImageView
@@ -69,7 +72,7 @@
                     android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
-                    android:src="@mipmap/p1"/>
+                    android:background="@mipmap/default_avator"/>
 
                 <TextView
                     android:id="@+id/userName"
@@ -105,13 +108,13 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:id="@+id/messageImage"
+                        android:id="@+id/linkImage"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@mipmap/p2"/>
+                        android:background="@mipmap/icon_default_url"/>
 
                     <TextView
-                        android:id="@+id/messageText"
+                        android:id="@+id/urlTitle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
@@ -122,6 +125,26 @@
                         android:textColor="#111111"
                         android:textSize="16sp"/>
                 </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/imageRl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/userName"
+                    android:layout_below="@id/message_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/oneImage"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:maxWidth="100dp"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/imageRc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/messageTime"
@@ -135,10 +158,11 @@
                     android:textSize="10sp"/>
 
                 <TextView
+                    android:id="@+id/messageDelete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/link_ll"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@id/messageTime"
                     android:text="删除"
@@ -203,7 +227,7 @@
                     android:layout_marginTop="20dp"/>
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/userRc"
+                    android:id="@+id/userReplayRc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

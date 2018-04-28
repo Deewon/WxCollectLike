@@ -36,6 +36,29 @@ public class UserEntity {
      * 主页背景
      */
     private String backImage;
+    /**
+     * 性别0，没填 1，男；2，女
+     */
+    private int sex;
+
+
+
+
+    @Generated(hash = 1713251450)
+    public UserEntity(String userWxid, String userName, String nickName,
+            int userImage, String userAddress, String backImage, int sex) {
+        this.userWxid = userWxid;
+        this.userName = userName;
+        this.nickName = nickName;
+        this.userImage = userImage;
+        this.userAddress = userAddress;
+        this.backImage = backImage;
+        this.sex = sex;
+    }
+
+    @Generated(hash = 1433178141)
+    public UserEntity() {
+    }
 
 
 
@@ -86,5 +109,13 @@ public class UserEntity {
 
     public void setBackImage(String backImage) {
         this.backImage = backImage;
+    }
+
+    public int getSex() {
+        return this.sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
     }
 }

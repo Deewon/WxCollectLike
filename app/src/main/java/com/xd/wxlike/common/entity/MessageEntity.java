@@ -17,37 +17,46 @@ public class MessageEntity {
      * 1、图片，2、链接，3、纯文本
      */
     private int msgType;
+    /**
+     * 消息内容
+     */
     private String content;
+    /**
+     * 链接
+     */
     private String URL;
+    /**
+     * 链接标题
+     */
     private String URLContent;
-    private String msgTime;
-    private String picAddress1;
-    private String picAddress2;
-    private String picAddress3;
-    private String picAddress4;
-    private String picAddress5;
-    private String picAddress6;
-    @Generated(hash = 2103228293)
+    /**
+     * 毫秒数
+     */
+    private long msgTime;
+    /**
+     * 图片,多图片地址以逗号隔开
+     */
+    private String picAddress;
+
+
+
+    @Generated(hash = 168984584)
     public MessageEntity(long id, int msgType, String content, String URL,
-            String URLContent, String msgTime, String picAddress1,
-            String picAddress2, String picAddress3, String picAddress4,
-            String picAddress5, String picAddress6) {
+            String URLContent, long msgTime, String picAddress) {
         this.id = id;
         this.msgType = msgType;
         this.content = content;
         this.URL = URL;
         this.URLContent = URLContent;
         this.msgTime = msgTime;
-        this.picAddress1 = picAddress1;
-        this.picAddress2 = picAddress2;
-        this.picAddress3 = picAddress3;
-        this.picAddress4 = picAddress4;
-        this.picAddress5 = picAddress5;
-        this.picAddress6 = picAddress6;
+        this.picAddress = picAddress;
     }
     @Generated(hash = 1797882234)
     public MessageEntity() {
     }
+
+
+
     public long getId() {
         return this.id;
     }
@@ -78,49 +87,19 @@ public class MessageEntity {
     public void setURLContent(String URLContent) {
         this.URLContent = URLContent;
     }
-    public String getMsgTime() {
+    public long getMsgTime() {
         return this.msgTime;
     }
-    public void setMsgTime(String msgTime) {
+    public void setMsgTime(long msgTime) {
         this.msgTime = msgTime;
     }
-    public String getPicAddress1() {
-        return this.picAddress1;
-    }
-    public void setPicAddress1(String picAddress1) {
-        this.picAddress1 = picAddress1;
-    }
-    public String getPicAddress2() {
-        return this.picAddress2;
-    }
-    public void setPicAddress2(String picAddress2) {
-        this.picAddress2 = picAddress2;
-    }
-    public String getPicAddress3() {
-        return this.picAddress3;
-    }
-    public void setPicAddress3(String picAddress3) {
-        this.picAddress3 = picAddress3;
-    }
-    public String getPicAddress4() {
-        return this.picAddress4;
-    }
-    public void setPicAddress4(String picAddress4) {
-        this.picAddress4 = picAddress4;
-    }
-    public String getPicAddress5() {
-        return this.picAddress5;
-    }
-    public void setPicAddress5(String picAddress5) {
-        this.picAddress5 = picAddress5;
-    }
-    public String getPicAddress6() {
-        return this.picAddress6;
-    }
-    public void setPicAddress6(String picAddress6) {
-        this.picAddress6 = picAddress6;
+    public String getPicAddress() {
+        return this.picAddress;
     }
 
+    public void setPicAddress(String picAddress) {
+        this.picAddress = picAddress;
+    }
 
 
 }

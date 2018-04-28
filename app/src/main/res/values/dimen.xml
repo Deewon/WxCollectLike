@@ -15,4 +15,11 @@
     <dimen name="dp_80">80dp</dimen>
 
 
+    <dimen name="text_xsmall">10sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_standar">14dp</dimen>
+    <dimen name="text_middle">15dp</dimen>
+    <dimen name="text_large">16dp</dimen>
+    <dimen name="text_xlarge">18dp</dimen>
+
 </resources>

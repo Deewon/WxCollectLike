@@ -29,13 +29,8 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         public final static Property Content = new Property(2, String.class, "content", false, "CONTENT");
         public final static Property URL = new Property(3, String.class, "URL", false, "URL");
         public final static Property URLContent = new Property(4, String.class, "URLContent", false, "URLCONTENT");
-        public final static Property MsgTime = new Property(5, String.class, "msgTime", false, "MSG_TIME");
-        public final static Property PicAddress1 = new Property(6, String.class, "picAddress1", false, "PIC_ADDRESS1");
-        public final static Property PicAddress2 = new Property(7, String.class, "picAddress2", false, "PIC_ADDRESS2");
-        public final static Property PicAddress3 = new Property(8, String.class, "picAddress3", false, "PIC_ADDRESS3");
-        public final static Property PicAddress4 = new Property(9, String.class, "picAddress4", false, "PIC_ADDRESS4");
-        public final static Property PicAddress5 = new Property(10, String.class, "picAddress5", false, "PIC_ADDRESS5");
-        public final static Property PicAddress6 = new Property(11, String.class, "picAddress6", false, "PIC_ADDRESS6");
+        public final static Property MsgTime = new Property(5, long.class, "msgTime", false, "MSG_TIME");
+        public final static Property PicAddress = new Property(6, String.class, "picAddress", false, "PIC_ADDRESS");
     }
 
 
@@ -56,13 +51,8 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
                 "\"CONTENT\" TEXT," + // 2: content
                 "\"URL\" TEXT," + // 3: URL
                 "\"URLCONTENT\" TEXT," + // 4: URLContent
-                "\"MSG_TIME\" TEXT," + // 5: msgTime
-                "\"PIC_ADDRESS1\" TEXT," + // 6: picAddress1
-                "\"PIC_ADDRESS2\" TEXT," + // 7: picAddress2
-                "\"PIC_ADDRESS3\" TEXT," + // 8: picAddress3
-                "\"PIC_ADDRESS4\" TEXT," + // 9: picAddress4
-                "\"PIC_ADDRESS5\" TEXT," + // 10: picAddress5
-                "\"PIC_ADDRESS6\" TEXT);"); // 11: picAddress6
+                "\"MSG_TIME\" INTEGER NOT NULL ," + // 5: msgTime
+                "\"PIC_ADDRESS\" TEXT);"); // 6: picAddress
     }
 
     /** Drops the underlying database table. */
@@ -91,40 +81,11 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         if (URLContent != null) {
             stmt.bindString(5, URLContent);
         }
+        stmt.bindLong(6, entity.getMsgTime());
  
-        String msgTime = entity.getMsgTime();
-        if (msgTime != null) {
-            stmt.bindString(6, msgTime);
-        }
- 
-        String picAddress1 = entity.getPicAddress1();
-        if (picAddress1 != null) {
-            stmt.bindString(7, picAddress1);
-        }
- 
-        String picAddress2 = entity.getPicAddress2();
-        if (picAddress2 != null) {
-            stmt.bindString(8, picAddress2);
-        }
- 
-        String picAddress3 = entity.getPicAddress3();
-        if (picAddress3 != null) {
-            stmt.bindString(9, picAddress3);
-        }
- 
-        String picAddress4 = entity.getPicAddress4();
-        if (picAddress4 != null) {
-            stmt.bindString(10, picAddress4);
-        }
- 
-        String picAddress5 = entity.getPicAddress5();
-        if (picAddress5 != null) {
-            stmt.bindString(11, picAddress5);
-        }
- 
-        String picAddress6 = entity.getPicAddress6();
-        if (picAddress6 != null) {
-            stmt.bindString(12, picAddress6);
+        String picAddress = entity.getPicAddress();
+        if (picAddress != null) {
+            stmt.bindString(7, picAddress);
         }
     }
 
@@ -148,40 +109,11 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         if (URLContent != null) {
             stmt.bindString(5, URLContent);
         }
+        stmt.bindLong(6, entity.getMsgTime());
  
-        String msgTime = entity.getMsgTime();
-        if (msgTime != null) {
-            stmt.bindString(6, msgTime);
-        }
- 
-        String picAddress1 = entity.getPicAddress1();
-        if (picAddress1 != null) {
-            stmt.bindString(7, picAddress1);
-        }
- 
-        String picAddress2 = entity.getPicAddress2();
-        if (picAddress2 != null) {
-            stmt.bindString(8, picAddress2);
-        }
- 
-        String picAddress3 = entity.getPicAddress3();
-        if (picAddress3 != null) {
-            stmt.bindString(9, picAddress3);
-        }
- 
-        String picAddress4 = entity.getPicAddress4();
-        if (picAddress4 != null) {
-            stmt.bindString(10, picAddress4);
-        }
- 
-        String picAddress5 = entity.getPicAddress5();
-        if (picAddress5 != null) {
-            stmt.bindString(11, picAddress5);
-        }
- 
-        String picAddress6 = entity.getPicAddress6();
-        if (picAddress6 != null) {
-            stmt.bindString(12, picAddress6);
+        String picAddress = entity.getPicAddress();
+        if (picAddress != null) {
+            stmt.bindString(7, picAddress);
         }
     }
 
@@ -198,13 +130,8 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // content
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // URL
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // URLContent
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // msgTime
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // picAddress1
-            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // picAddress2
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // picAddress3
-            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // picAddress4
-            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // picAddress5
-            cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11) // picAddress6
+            cursor.getLong(offset + 5), // msgTime
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6) // picAddress
         );
         return entity;
     }
@@ -216,13 +143,8 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         entity.setContent(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setURL(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setURLContent(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setMsgTime(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setPicAddress1(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setPicAddress2(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setPicAddress3(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-        entity.setPicAddress4(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
-        entity.setPicAddress5(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
-        entity.setPicAddress6(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
+        entity.setMsgTime(cursor.getLong(offset + 5));
+        entity.setPicAddress(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
      }
     
     @Override
