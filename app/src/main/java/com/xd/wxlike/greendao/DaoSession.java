@@ -8,9 +8,11 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
+import com.xd.wxlike.common.entity.LikeEntity;
 import com.xd.wxlike.common.entity.UserEntity;
 import com.xd.wxlike.common.entity.MessageEntity;
 
+import com.xd.wxlike.greendao.LikeEntityDao;
 import com.xd.wxlike.greendao.UserEntityDao;
 import com.xd.wxlike.greendao.MessageEntityDao;
 
@@ -23,9 +25,11 @@ import com.xd.wxlike.greendao.MessageEntityDao;
  */
 public class DaoSession extends AbstractDaoSession {
 
+    private final DaoConfig likeEntityDaoConfig;
     private final DaoConfig userEntityDaoConfig;
     private final DaoConfig messageEntityDaoConfig;
 
+    private final LikeEntityDao likeEntityDao;
     private final UserEntityDao userEntityDao;
     private final MessageEntityDao messageEntityDao;
 
@@ -33,22 +37,32 @@ public class DaoSession extends AbstractDaoSession {
             daoConfigMap) {
         super(db);
 
+        likeEntityDaoConfig = daoConfigMap.get(LikeEntityDao.class).clone();
+        likeEntityDaoConfig.initIdentityScope(type);
+
         userEntityDaoConfig = daoConfigMap.get(UserEntityDao.class).clone();
         userEntityDaoConfig.initIdentityScope(type);
 
         messageEntityDaoConfig = daoConfigMap.get(MessageEntityDao.class).clone();
         messageEntityDaoConfig.initIdentityScope(type);
 
+        likeEntityDao = new LikeEntityDao(likeEntityDaoConfig, this);
         userEntityDao = new UserEntityDao(userEntityDaoConfig, this);
         messageEntityDao = new MessageEntityDao(messageEntityDaoConfig, this);
 
+        registerDao(LikeEntity.class, likeEntityDao);
         registerDao(UserEntity.class, userEntityDao);
         registerDao(MessageEntity.class, messageEntityDao);
     }
     
     public void clear() {
+        likeEntityDaoConfig.clearIdentityScope();
         userEntityDaoConfig.clearIdentityScope();
         messageEntityDaoConfig.clearIdentityScope();
+    }
+
+    public LikeEntityDao getLikeEntityDao() {
+        return likeEntityDao;
     }
 
     public UserEntityDao getUserEntityDao() {
