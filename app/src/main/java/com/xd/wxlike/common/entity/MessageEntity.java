@@ -37,12 +37,16 @@ public class MessageEntity {
      * 图片,多图片地址以逗号隔开
      */
     private String picAddress;
+    /**
+     * 发布消息的人id
+     */
+    private String sendUserId;
 
 
 
-    @Generated(hash = 168984584)
+    @Generated(hash = 565900858)
     public MessageEntity(long id, int msgType, String content, String URL,
-            String URLContent, long msgTime, String picAddress) {
+            String URLContent, long msgTime, String picAddress, String sendUserId) {
         this.id = id;
         this.msgType = msgType;
         this.content = content;
@@ -50,6 +54,7 @@ public class MessageEntity {
         this.URLContent = URLContent;
         this.msgTime = msgTime;
         this.picAddress = picAddress;
+        this.sendUserId = sendUserId;
     }
     @Generated(hash = 1797882234)
     public MessageEntity() {
@@ -99,6 +104,12 @@ public class MessageEntity {
 
     public void setPicAddress(String picAddress) {
         this.picAddress = picAddress;
+    }
+    public String getSendUserId() {
+        return this.sendUserId;
+    }
+    public void setSendUserId(String sendUserId) {
+        this.sendUserId = sendUserId;
     }
 
 

@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import com.xd.wxlike.R;
 import com.xd.wxlike.common.base.BaseActivity;
+import com.xd.wxlike.common.db.CommonDaoManager;
+import com.xd.wxlike.common.db.DaoManager;
+import com.xd.wxlike.common.entity.MessageEntity;
 
 /**
  * Created by zhangxiaodi on 2018/4/4.01:07
@@ -20,6 +23,7 @@ import com.xd.wxlike.common.base.BaseActivity;
 
 public class MessageInfoActivity extends BaseActivity {
 
+    public static final String MESSAGEID = "messageId";
 
     private RecyclerView mZanRc;
     private LinearLayout mLikeLl;
@@ -38,12 +42,16 @@ public class MessageInfoActivity extends BaseActivity {
     private TextView messageDelete;
 
 
+    private MessageEntity messageEntity;
+    private int messageId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_detail);
         ((TextView)findViewById(R.id.title)).setText("详情");
+        messageId = getIntent().getIntExtra(MESSAGEID,-1);
+        findViewById(R.id.right_image1).setVisibility(View.VISIBLE);
         findViewById(R.id.right_image1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +61,17 @@ public class MessageInfoActivity extends BaseActivity {
             }
         });
         initView();
+        getMessageInfo();
+    }
+
+    /**
+     * 获取消息内容
+     */
+    private void getMessageInfo() {
+        messageEntity = CommonDaoManager.getMesageDaoManager().getMessageInfoById(messageId);
+        //根据messageId查询该条信息点赞的人
+
+
     }
 
     private void initView() {
@@ -72,6 +91,9 @@ public class MessageInfoActivity extends BaseActivity {
         mReplyRl = findViewById(R.id.reply_rl);
         mLikeLl = findViewById(R.id.zan_ll);
         mZanRc = findViewById(R.id.zanRc);
+
+
+
     }
 
 

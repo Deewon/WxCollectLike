@@ -9,6 +9,8 @@ public class CommonDaoManager {
 
 
     public static UserInfoDaoManager userInfoDaoManager;
+    public static MessageDaoManager messageDaoManager;
+    public static LikeDaoManager likeDaoManager;
 
 
 
@@ -16,6 +18,20 @@ public class CommonDaoManager {
         if (userInfoDaoManager == null)
             userInfoDaoManager = new UserInfoDaoManager();
         return userInfoDaoManager;
+    }
+
+    public static MessageDaoManager getMesageDaoManager(){
+        if(messageDaoManager == null){
+            messageDaoManager = new MessageDaoManager();
+        }
+        return messageDaoManager;
+    }
+
+    public static LikeDaoManager getLikeDaoManager(){
+        if(likeDaoManager == null){
+            likeDaoManager = new LikeDaoManager();
+        }
+        return likeDaoManager;
     }
 
 }

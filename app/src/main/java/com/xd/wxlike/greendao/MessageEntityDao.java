@@ -31,6 +31,7 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         public final static Property URLContent = new Property(4, String.class, "URLContent", false, "URLCONTENT");
         public final static Property MsgTime = new Property(5, long.class, "msgTime", false, "MSG_TIME");
         public final static Property PicAddress = new Property(6, String.class, "picAddress", false, "PIC_ADDRESS");
+        public final static Property SendUserId = new Property(7, String.class, "sendUserId", false, "SEND_USER_ID");
     }
 
 
@@ -52,7 +53,8 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
                 "\"URL\" TEXT," + // 3: URL
                 "\"URLCONTENT\" TEXT," + // 4: URLContent
                 "\"MSG_TIME\" INTEGER NOT NULL ," + // 5: msgTime
-                "\"PIC_ADDRESS\" TEXT);"); // 6: picAddress
+                "\"PIC_ADDRESS\" TEXT," + // 6: picAddress
+                "\"SEND_USER_ID\" TEXT);"); // 7: sendUserId
     }
 
     /** Drops the underlying database table. */
@@ -87,6 +89,11 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         if (picAddress != null) {
             stmt.bindString(7, picAddress);
         }
+ 
+        String sendUserId = entity.getSendUserId();
+        if (sendUserId != null) {
+            stmt.bindString(8, sendUserId);
+        }
     }
 
     @Override
@@ -115,6 +122,11 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         if (picAddress != null) {
             stmt.bindString(7, picAddress);
         }
+ 
+        String sendUserId = entity.getSendUserId();
+        if (sendUserId != null) {
+            stmt.bindString(8, sendUserId);
+        }
     }
 
     @Override
@@ -131,7 +143,8 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // URL
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // URLContent
             cursor.getLong(offset + 5), // msgTime
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6) // picAddress
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // picAddress
+            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7) // sendUserId
         );
         return entity;
     }
@@ -145,6 +158,7 @@ public class MessageEntityDao extends AbstractDao<MessageEntity, Long> {
         entity.setURLContent(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setMsgTime(cursor.getLong(offset + 5));
         entity.setPicAddress(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setSendUserId(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
      }
     
     @Override
