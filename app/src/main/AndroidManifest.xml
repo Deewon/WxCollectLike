@@ -25,37 +25,37 @@
             android:name=".activity.MessageInfoActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask">
+            android:launchMode="standard">
         </activity>
         <activity
             android:name=".activity.SelectUserActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask">
+            android:launchMode="standard">
         </activity>
         <activity
             android:name=".activity.SettingActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask">
+            android:launchMode="standard">
         </activity>
         <activity
             android:name=".activity.UserInfoActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask">
+            android:launchMode="standard">
         </activity>
         <activity
             android:name=".activity.SelectMessageTypeActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask">
+            android:launchMode="standard">
         </activity>
         <activity
             android:name=".activity.SendMessageActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask">
+            android:launchMode="standard">
         </activity>
     </application>
 

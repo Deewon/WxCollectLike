@@ -10,6 +10,8 @@ import com.xd.wxlike.MyApplication;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -143,4 +145,63 @@ public class MathUtil {
         int statusBarHeightId = MyApplication.getInstance().getResources().getIdentifier("status_bar_height", "dimen", "android");
         return MyApplication.getInstance().getResources().getDimensionPixelOffset(statusBarHeightId);
     }
+
+
+    /**
+     *  时间戳格式转换
+     */
+    public static String getFormatTime(long timesamp) {
+        String result = "";
+        Calendar todayCalendar = Calendar.getInstance();
+        Calendar otherCalendar = Calendar.getInstance();
+        otherCalendar.setTimeInMillis(timesamp);
+
+        SimpleDateFormat timeFormat = new SimpleDateFormat("M月d日 HH:mm");
+        SimpleDateFormat yearTimeFormat = new SimpleDateFormat("yyyy年M月d日 HH:mm");
+        SimpleDateFormat hourAndMinFormat = new SimpleDateFormat("HH:mm");
+
+        boolean yearTemp = todayCalendar.get(Calendar.YEAR)==otherCalendar.get(Calendar.YEAR);
+        if(yearTemp){
+            int todayMonth=todayCalendar.get(Calendar.MONTH);
+            int otherMonth=otherCalendar.get(Calendar.MONTH);
+            if(todayMonth==otherMonth){//表示是同一个月
+                int temp=todayCalendar.get(Calendar.DATE)-otherCalendar.get(Calendar.DATE);
+                switch (temp) {
+                    case 0:
+                        result = hourAndMinFormat.format(new Date(timesamp));
+                        break;
+                    case 1:
+                        result = "昨天 " + hourAndMinFormat.format(new Date(timesamp));
+                        break;
+
+                    default:
+                        result = timeFormat.format(new Date(timesamp));
+                        break;
+                }
+            }else{
+                result = timeFormat.format(new Date(timesamp));
+            }
+        }else{
+            result=yearTimeFormat.format(new Date(timesamp));
+        }
+        return result;
+    }
+
+    /**
+     * 将日期格式的字符串转换为长整型
+     *
+     * @param date
+     * @return
+     */
+    public static long convert2long(String date) {
+        try {
+            SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            return sf.parse(date).getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
+
 }

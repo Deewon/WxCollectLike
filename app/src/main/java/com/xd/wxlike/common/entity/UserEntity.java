@@ -27,7 +27,7 @@ public class UserEntity {
     /**
      * 头像资源id
      */
-    private int userImage;
+    private String userImage;
     /**
      * 地址
      */
@@ -44,9 +44,11 @@ public class UserEntity {
 
 
 
-    @Generated(hash = 1713251450)
+
+
+    @Generated(hash = 579384030)
     public UserEntity(String userWxid, String userName, String nickName,
-            int userImage, String userAddress, String backImage, int sex) {
+            String userImage, String userAddress, String backImage, int sex) {
         this.userWxid = userWxid;
         this.userName = userName;
         this.nickName = nickName;
@@ -59,6 +61,8 @@ public class UserEntity {
     @Generated(hash = 1433178141)
     public UserEntity() {
     }
+
+
 
 
 
@@ -95,11 +99,11 @@ public class UserEntity {
         this.nickName = nickName;
     }
 
-    public int getUserImage() {
+    public String getUserImage() {
         return this.userImage;
     }
 
-    public void setUserImage(int userImage) {
+    public void setUserImage(String userImage) {
         this.userImage = userImage;
     }
 

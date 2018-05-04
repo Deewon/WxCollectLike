@@ -6,19 +6,34 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 
 import com.xd.wxlike.R;
 
 public class SelectTypeDialog extends AlertDialog {
 
+    public static int TYPE_TEXT = 0;
+    public static int TYPE_URL = 1;
+    public static int TYPE_IMAGE = 2;
+
+
     private Context context;
     private OnTypeClickListener listener;
 
-    protected SelectTypeDialog(@NonNull Context context, OnTypeClickListener listener) {
+    public SelectTypeDialog(@NonNull Context context, OnTypeClickListener listener) {
         super(context);
         this.context = context;
         this.listener = listener;
+
+
+
+
         initView();
+    }
+
+
+    protected SelectTypeDialog(@NonNull Context context){
+        super(context);
     }
 
     protected SelectTypeDialog(@NonNull Context context, int themeResId) {
@@ -30,13 +45,15 @@ public class SelectTypeDialog extends AlertDialog {
     }
 
 
+
     private void initView() {
+        Builder builder = new Builder(context);
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_select_type,null);
         view.findViewById(R.id.textType).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(listener!=null){
-                    listener.onClick(SelectTypeDialog.this,0);
+                    listener.onClick(SelectTypeDialog.this,TYPE_TEXT);
                 }
             }
         });
@@ -44,7 +61,7 @@ public class SelectTypeDialog extends AlertDialog {
             @Override
             public void onClick(View v) {
                 if(listener!=null){
-                    listener.onClick(SelectTypeDialog.this,1);
+                    listener.onClick(SelectTypeDialog.this,TYPE_URL);
                 }
             }
         });
@@ -52,7 +69,7 @@ public class SelectTypeDialog extends AlertDialog {
             @Override
             public void onClick(View v) {
                 if(listener!=null){
-                    listener.onClick(SelectTypeDialog.this,2);
+                    listener.onClick(SelectTypeDialog.this,TYPE_IMAGE);
                 }
             }
         });
@@ -64,10 +81,9 @@ public class SelectTypeDialog extends AlertDialog {
                 }
             }
         });
-    }
-
-    interface OnTypeClickListener{
-        void onClick(SelectTypeDialog dialog,int which);
+        builder.setView(view);
+        builder.create();
+        show();
     }
 
 }

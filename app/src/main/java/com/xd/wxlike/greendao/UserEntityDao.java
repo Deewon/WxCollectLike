@@ -27,7 +27,7 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         public final static Property UserWxid = new Property(0, String.class, "userWxid", true, "USER_WXID");
         public final static Property UserName = new Property(1, String.class, "userName", false, "USER_NAME");
         public final static Property NickName = new Property(2, String.class, "nickName", false, "NICK_NAME");
-        public final static Property UserImage = new Property(3, int.class, "userImage", false, "USER_IMAGE");
+        public final static Property UserImage = new Property(3, String.class, "userImage", false, "USER_IMAGE");
         public final static Property UserAddress = new Property(4, String.class, "userAddress", false, "USER_ADDRESS");
         public final static Property BackImage = new Property(5, String.class, "backImage", false, "BACK_IMAGE");
         public final static Property Sex = new Property(6, int.class, "sex", false, "SEX");
@@ -49,7 +49,7 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
                 "\"USER_WXID\" TEXT PRIMARY KEY NOT NULL ," + // 0: userWxid
                 "\"USER_NAME\" TEXT," + // 1: userName
                 "\"NICK_NAME\" TEXT," + // 2: nickName
-                "\"USER_IMAGE\" INTEGER NOT NULL ," + // 3: userImage
+                "\"USER_IMAGE\" TEXT," + // 3: userImage
                 "\"USER_ADDRESS\" TEXT," + // 4: userAddress
                 "\"BACK_IMAGE\" TEXT," + // 5: backImage
                 "\"SEX\" INTEGER NOT NULL );"); // 6: sex
@@ -79,7 +79,11 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         if (nickName != null) {
             stmt.bindString(3, nickName);
         }
-        stmt.bindLong(4, entity.getUserImage());
+ 
+        String userImage = entity.getUserImage();
+        if (userImage != null) {
+            stmt.bindString(4, userImage);
+        }
  
         String userAddress = entity.getUserAddress();
         if (userAddress != null) {
@@ -111,7 +115,11 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         if (nickName != null) {
             stmt.bindString(3, nickName);
         }
-        stmt.bindLong(4, entity.getUserImage());
+ 
+        String userImage = entity.getUserImage();
+        if (userImage != null) {
+            stmt.bindString(4, userImage);
+        }
  
         String userAddress = entity.getUserAddress();
         if (userAddress != null) {
@@ -136,7 +144,7 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
             cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0), // userWxid
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // userName
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // nickName
-            cursor.getInt(offset + 3), // userImage
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // userImage
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // userAddress
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // backImage
             cursor.getInt(offset + 6) // sex
@@ -149,7 +157,7 @@ public class UserEntityDao extends AbstractDao<UserEntity, String> {
         entity.setUserWxid(cursor.isNull(offset + 0) ? null : cursor.getString(offset + 0));
         entity.setUserName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setNickName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setUserImage(cursor.getInt(offset + 3));
+        entity.setUserImage(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setUserAddress(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setBackImage(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
         entity.setSex(cursor.getInt(offset + 6));
